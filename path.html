@@ -11,7 +11,6 @@
             height: 100%;
             background-color: #0f172a;
             color: white;
-
         }
         body::-webkit-scrollbar {
             display: none;
@@ -20,7 +19,7 @@
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             background-color: #1e293b;
-            padding: 24px;
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -28,12 +27,31 @@
         }
         .card-header {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .card-header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .card-content {
+                flex-direction: row;
+                align-items: center;
+                gap: 1.25rem;
+            }
         }
         .circle {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -41,9 +59,16 @@
             background: linear-gradient(135deg, #4F46E5, #8B5CF6);
             color: white;
             font-weight: bold;
-            font-size: 2.5rem;
-            margin-right: 20px;
+            font-size: 1.75rem;
             flex-shrink: 0;
+        }
+        @media (min-width: 640px) {
+            .circle {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+                margin-right: 20px;
+            }
         }
         .content {
             display: none;
@@ -72,41 +97,56 @@
         .learn-more-btn:hover {
             background: linear-gradient(135deg, #3B82F6, #6366F1);
         }
-
+        .expand-btn {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            margin-top: 1rem;
+            text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none;
+        }
+        @media (min-width: 768px) {
+            .expand-btn {
+                width: auto;
+                margin-top: 0;
+            }
+        }
     </style>
 </head>
 <body>
     
     <!-- Header -->
     <header class="bg-gray-800 shadow-md">
-        <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <h1 class="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"><a href="index.html">Recursive Minds</a></h1>
-            <nav>
-                <ul class="flex space-x-6 text-gray-300 text-lg font-semibold">
-                    <li><a href="index.html" class="hover:text-blue-400 transition duration-300 ease-in-out">Home</a></li>
-                    <li><a href="creators.html" class="hover:text-blue-400 transition duration-300 ease-in-out">Creators</a></li>
-                </ul>
-            </nav>
+        <div class="container mx-auto px-4 py-4 sm:px-6">
+            <div class="flex flex-col items-center sm:flex-row sm:justify-between">
+                <h1 class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4 sm:mb-0">
+                    <a href="index.html">Recursive Minds</a>
+                </h1>
+                <nav>
+                    <ul class="flex space-x-4 sm:space-x-6 text-gray-300 text-base sm:text-lg font-semibold">
+                        <li><a href="index.html" class="hover:text-blue-400 transition duration-300 ease-in-out">Home</a></li>
+                        <li><a href="creators.html" class="hover:text-blue-400 transition duration-300 ease-in-out">Creators</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Basics Section -->
-    <section class="container mx-auto py-12 px-6">
-        <h2 class="text-4xl font-bold text-gray-100 mb-6">Basics</h2>
-        <div class="space-y-6">
+    <section class="container mx-auto py-8 sm:py-12 px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 mb-6">Basics</h2>
+        <div class="space-y-4 sm:space-y-6">
             
-
             <!-- Card 1 -->
             <div class="card w-full">
                 <div class="card-header">
-                    <div class="flex items-center">
+                    <div class="card-content">
                         <div class="circle">1</div>
                         <div>
-                            <h3 class="text-2xl font-bold">Understanding Basic Maths for Programming</h3>
-                            <p class="text-gray-300">Essential mathematical concepts for better programming and problem-solving.</p>
+                            <h3 class="text-xl sm:text-2xl font-bold">Understanding Basic Maths for Programming</h3>
+                            <p class="text-sm sm:text-base text-gray-300">Essential mathematical concepts for better programming and problem-solving.</p>
                         </div>
                     </div>
-                    <button onclick="toggleCard(1)" class="arrow text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none">
+                    <button onclick="toggleCard(1)" class="expand-btn">
                         Expand
                     </button>
                 </div>
@@ -126,22 +166,17 @@
                 </div>
             </div>
 
-
-
-
-
-
             <!-- Card 2 -->
             <div class="card w-full">
                 <div class="card-header">
-                    <div class="flex items-center">
+                    <div class="card-content">
                         <div class="circle">2</div>
                         <div>
-                            <h3 class="text-2xl font-bold">Introduction to Programming</h3>
-                            <p class="text-gray-300">Learn the fundamentals of programming.</p>
+                            <h3 class="text-xl sm:text-2xl font-bold">Introduction to Programming</h3>
+                            <p class="text-sm sm:text-base text-gray-300">Learn the fundamentals of programming.</p>
                         </div>
                     </div>
-                    <button onclick="toggleCard(2)" class="arrow text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none">
+                    <button onclick="toggleCard(2)" class="expand-btn">
                         Expand
                     </button>
                 </div>
@@ -163,21 +198,20 @@
                         <li><a href="https://youtube.com/playlist?list=PLsyeobzWxl7rooJFZhc3qPLwVROovGCfh&si=4oVVCxPlkCuOK-Qp" class="text-blue-400 hover:underline" target="_blank">Kotlin Tutorial</a></li>
                         <li><a href="https://youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&si=A04j8tflX11mbFWG" class="text-blue-400 hover:underline" target="_blank">Namaste JavaScript</a></li>
                     </ul>
-
                 </div>
             </div>
 
             <!-- Card 3 -->
             <div class="card w-full">
                 <div class="card-header">
-                    <div class="flex items-center">
+                    <div class="card-content">
                         <div class="circle">3</div>
                         <div>
-                            <h3 class="text-2xl font-bold">Data Structures and Algorithms</h3>
-                            <p class="text-gray-300">Learn essential DSA concepts for problem-solving.</p>
+                            <h3 class="text-xl sm:text-2xl font-bold">Data Structures and Algorithms</h3>
+                            <p class="text-sm sm:text-base text-gray-300">Learn essential DSA concepts for problem-solving.</p>
                         </div>
                     </div>
-                    <button onclick="toggleCard(3)" class="arrow text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none">
+                    <button onclick="toggleCard(3)" class="expand-btn">
                         Expand
                     </button>
                 </div>
@@ -196,34 +230,27 @@
                         <li><a href="https://youtube.com/playlist?list=PLeo1K3hjS3uu_n_a__MI_KktGTLYopZ12&si=c1GQH7k2WIhKGFVy" class="text-blue-400 hover:underline" target="_blank">Data Structures And Algorithms In Python</a></li>
                         <li><a href="https://youtube.com/playlist?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&si=vOHIez9wQpF3F0SG" class="text-blue-400 hover:underline" target="_blank">JavaScript Algorithms and Data Structures</a></li>
                     </ul>
-
-
                 </div>
             </div>
-
-
-
         </div>
-
     </section>
 
     <!-- Development Section -->
-    <section class="container mx-auto py-12 px-6">
-
-        <h2 class="text-4xl font-bold text-gray-100 mb-6">Development</h2>
-        <div class="space-y-6">
+    <section class="container mx-auto py-8 sm:py-12 px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 mb-6">Development</h2>
+        <div class="space-y-4 sm:space-y-6">
 
             <!-- Card 4 -->
             <div class="card w-full">
                 <div class="card-header">
-                    <div class="flex items-center">
+                    <div class="card-content">
                         <div class="circle">4</div>
                         <div>
-                            <h3 class="text-2xl font-bold">Full Stack Development (MERN)</h3>
-                            <p class="text-gray-300">Master web development with MongoDB, Express, React, and Node.js.</p>
+                            <h3 class="text-xl sm:text-2xl font-bold">Full Stack Development (MERN)</h3>
+                            <p class="text-sm sm:text-base text-gray-300">Master web development with MongoDB, Express, React, and Node.js.</p>
                         </div>
                     </div>
-                    <button onclick="toggleCard(4)" class="arrow text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none">
+                    <button onclick="toggleCard(4)" class="expand-btn">
                         Expand
                     </button>
                 </div>
@@ -240,22 +267,20 @@
                         <li><a href="https://youtube.com/playlist?list=PLwGdqUZWnOp2Z3eFOgtOGvOWIk4e8Bsr_&si=6jrk15OU88FAmpDQ" class="text-blue-400 hover:underline" target="_blank">MERN STACK IN HINDI 2025</a></li>
                         <li><a href="https://youtube.com/playlist?list=PLLUjkbOx5di5y1nGhbivWj0OLPU7u-3qA&si=Ppy0eUWW-5SJAjdG" class="text-blue-400 hover:underline" target="_blank">FULL STACK WEB DEVELOPMENT COURSE BY USING MERN</a></li>
                     </ul>
-
                 </div>
             </div>
-
 
             <!-- Card 5 -->
             <div class="card w-full">
                 <div class="card-header">
-                    <div class="flex items-center">
+                    <div class="card-content">
                         <div class="circle">5</div>
                         <div>
-                            <h3 class="text-2xl font-bold">Full Stack Development (Spring Boot)</h3>
-                            <p class="text-gray-300">Learn how to build scalable backend applications with Spring Boot.</p>
+                            <h3 class="text-xl sm:text-2xl font-bold">Full Stack Development (Spring Boot)</h3>
+                            <p class="text-sm sm:text-base text-gray-300">Learn how to build scalable backend applications with Spring Boot.</p>
                         </div>
                     </div>
-                    <button onclick="toggleCard(5)" class="arrow text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none">
+                    <button onclick="toggleCard(5)" class="expand-btn">
                         Expand
                     </button>
                 </div>
@@ -277,14 +302,14 @@
             <!-- Card 6 -->
             <div class="card w-full">
                 <div class="card-header">
-                    <div class="flex items-center">
+                    <div class="card-content">
                         <div class="circle">6</div>
                         <div>
-                            <h3 class="text-2xl font-bold">Android Development</h3>
-                            <p class="text-gray-300">Build modern Android applications with Java and Kotlin.</p>
+                            <h3 class="text-xl sm:text-2xl font-bold">Android Development</h3>
+                            <p class="text-sm sm:text-base text-gray-300">Build modern Android applications with Java and Kotlin.</p>
                         </div>
                     </div>
-                    <button onclick="toggleCard(6)" class="arrow text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none">
+                    <button onclick="toggleCard(6)" class="expand-btn">
                         Expand
                     </button>
                 </div>
@@ -301,21 +326,29 @@
                         <li><a href="https://youtube.com/playlist?list=PLgpnJydBcnPA5aNrlDxxKWSqAma7m3OIl&si=FY9HZyVEpXX3jLTD" class="text-blue-400 hover:underline" target="_blank">Jetpack Compose</a></li>
                         <li><a href="https://youtube.com/playlist?list=PL0_PwGVXLzbABRR1CdEkWk5-aLLF8eJrH&si=2SpC9QZ4BFL1Ugcq" class="text-blue-400 hover:underline" target="_blank">Jetpack Compose Projects</a></li>
                     </ul>
-
-
                 </div>
             </div>
-
-
-
-
         </div>
     </section>
+    
     <!-- Disclaimer Section -->
-    <footer class="text-center text-gray-400 py-6 text-sm">
+    <footer class="text-center text-gray-400 py-6 px-4 text-sm">
         <p>Disclaimer: This website contains educational content sourced from various materials for learning purposes.</p>
     </footer>
 
-
+    <script>
+        function toggleCard(cardNumber) {
+            const content = document.getElementById(`content-${cardNumber}`);
+            const button = document.querySelector(`button[onclick="toggleCard(${cardNumber})"]`);
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                button.textContent = 'Expand';
+            } else {
+                content.style.display = 'block';
+                button.textContent = 'Collapse';
+            }
+        }
+    </script>
 </body>
 </html>
