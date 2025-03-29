@@ -2,9 +2,218 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paths - Recursive Minds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            background-color: #0f172a;
+            color: white;
+        }
+        .card {
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            background-color: #1e293b;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .circle {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4F46E5, #8B5CF6);
+            color: white;
+            font-weight: bold;
+            font-size: 2.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+            margin-top: 10px;
+            color: #D1D5DB;
+        }
+        .bullet-list {
+            padding-left: 20px;
+            list-style-type: disc;
+            line-height: 1.8;
+        }
+        .learn-more-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4F46E5, #8B5CF6);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .learn-more-btn:hover {
+            background: linear-gradient(135deg, #3B82F6, #6366F1);
+        }
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+        .rotate {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 <body>
+    
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <h1 class="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Recursive Minds</h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-300 text-lg font-semibold">
+                    <li><a href="index.html" class="hover:text-blue-400 transition duration-300 ease-in-out">Home</a></li>
+                    <li><a href="creators.html" class="hover:text-blue-400 transition duration-300 ease-in-out">Creators</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Basics Section -->
+    <section class="container mx-auto py-12 px-6">
+        <h2 class="text-4xl font-bold text-gray-100 mb-6">Basics</h2>
+        <div class="space-y-6">
+            
+            <!-- Card 1 -->
+            <div class="card w-full" onclick="toggleCard(1)">
+                <div class="card-header">
+                    <div class="flex items-center">
+                        <div class="circle">1</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Understanding Computers</h3>
+                            <p class="text-gray-300">Basics of how computers work.</p>
+                        </div>
+                    </div>
+                    <div id="arrow-1" class="arrow text-3xl">▼</div>
+                </div>
+                <div id="content-1" class="content">
+                    <ul class="bullet-list">
+                        <li>Introduction to hardware and software.</li>
+                        <li>How computers process data.</li>
+                        <li>Operating systems and their role.</li>
+                    </ul>
+                    <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card w-full" onclick="toggleCard(2)">
+                <div class="card-header">
+                    <div class="flex items-center">
+                        <div class="circle">2</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Introduction to Programming</h3>
+                            <p class="text-gray-300">Learn the fundamentals of programming.</p>
+                        </div>
+                    </div>
+                    <div id="arrow-2" class="arrow text-3xl">▼</div>
+                </div>
+                <div id="content-2" class="content">
+                    <ul class="bullet-list">
+                        <li>What is programming?</li>
+                        <li>Basic syntax of popular languages.</li>
+                        <li>Writing your first program.</li>
+                    </ul>
+                    <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Development Section -->
+    <section class="container mx-auto py-12 px-6">
+        <h2 class="text-4xl font-bold text-gray-100 mb-6">Development</h2>
+        <div class="space-y-6">
+            
+            <!-- Card 3 -->
+            <div class="card w-full" onclick="toggleCard(3)">
+                <div class="card-header">
+                    <div class="flex items-center">
+                        <div class="circle">3</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Full Stack Development (MERN)</h3>
+                            <p class="text-gray-300">Master web development with MongoDB, Express, React, and Node.js.</p>
+                        </div>
+                    </div>
+                    <div id="arrow-3" class="arrow text-3xl">▼</div>
+                </div>
+                <div id="content-3" class="content">
+                    <ul class="bullet-list">
+                        <li>Setting up a full-stack MERN project.</li>
+                        <li>Understanding RESTful APIs.</li>
+                        <li>State management with React.</li>
+                    </ul>
+                    <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card w-full" onclick="toggleCard(4)">
+                <div class="card-header">
+                    <div class="flex items-center">
+                        <div class="circle">4</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Full Stack Development (Spring Boot)</h3>
+                            <p class="text-gray-300">Learn how to build scalable backend applications with Spring Boot.</p>
+                        </div>
+                    </div>
+                    <div id="arrow-4" class="arrow text-3xl">▼</div>
+                </div>
+                <div id="content-4" class="content">
+                    <ul class="bullet-list">
+                        <li>Building REST APIs with Spring Boot.</li>
+                        <li>Integrating databases with JPA.</li>
+                        <li>Security and authentication in Spring Boot.</li>
+                    </ul>
+                    <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </section>
+    <!-- Disclaimer Section -->
+    <footer class="text-center text-gray-400 py-6 text-sm">
+        <p>Disclaimer: This website contains educational content sourced from various materials for learning purposes.</p>
+    </footer>
+
+    <script>
+        function toggleCard(id) {
+            let content = document.getElementById("content-" + id);
+            let arrow = document.getElementById("arrow-" + id);
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                arrow.classList.remove("rotate");
+            } else {
+                content.style.display = "block";
+                arrow.classList.add("rotate");
+            }
+        }
+    </script>
 
 </body>
 </html>
