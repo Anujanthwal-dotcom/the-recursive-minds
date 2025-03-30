@@ -102,8 +102,25 @@
             text-align: center;
             width: 100%;
             margin-top: 1rem;
-            text-lg text-white cursor-pointer px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg select-none;
+            padding: 0.5rem 1rem;
+            font-size: 1.125rem;
+            color: white;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            border-radius: 0.5rem;
+            transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+            user-select: none;
         }
+
+        .expand-btn:hover {
+            background-color: rgba(107, 114, 128, 0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+
         @media (min-width: 768px) {
             .expand-btn {
                 width: auto;
